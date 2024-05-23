@@ -9,93 +9,93 @@
             type such as a stack is the creation of a new class. The stack
             operations are implemented as methods. However, the STL already has a well
             written implementation of the Stack class.</p>
-        <p>The following stack implementation (<xref ref="lst-stackcode1"/>) assumes that
-            the end of the array will hold the top element of the stack. As the stack
-            grows (as <c>push</c> operations occur), new items will be added on the end
-            of the array. <c>pop</c> operations will manipulate that same end.</p>
-        
-        <TabNode tabname="C++" tabnode_options="{'subchapter': 'ImplementingaStackCpp', 'chapter': 'LinearBasic', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
+            <p>The following stack implementation <a href="#stack_1ac_cpp">ActiveCode - Stack Implementation</a> assumes that the end of the array will hold the top element of the stack. As the stack grows (as <c>push</c> operations occur), new items will be added on the end of the array. <c>pop</c> operations will manipulate that same end. If the link is not working, please scroll down to the corresponding section manually or refer to the program ID: stack_1ac_cpp.</p>
 
-    <program xml:id="stack_1ac_cpp" interactive="activecode" language="cpp">
-        <input>
-//Tests the push, empty, size, pop, and top methods of the stack library.
 
-#include &lt;iostream&gt;
-#include &lt;stack&gt;    // Calling Stack from the STL
-
-using namespace std;
-
-int main() {
-    stack&lt;int&gt; newStack;
-
-    newStack.push(3); //Adds 3 to the stack
-    newStack.push(8);
-    newStack.push(15);
-
-    // returns a boolean response depending on if the stack is empty or not
-    cout &lt;&lt; "Stack Empty? " &lt;&lt; newStack.empty() &lt;&lt; endl;
-
-    // returns the size of the stack itself
-    cout &lt;&lt; "Stack Size: " &lt;&lt; newStack.size() &lt;&lt; endl;
-
-    // returns the topmost element of the stack
-    cout &lt;&lt; "Top Element of the Stack: " &lt;&lt; newStack.top() &lt;&lt; endl;
-
-    // removes the topmost element of the stack
-    newStack.pop();
-
-    cout &lt;&lt; "Top Element of the Stack: " &lt;&lt; newStack.top() &lt;&lt; endl;
-
-    cout &lt;&lt; "Stack Size: " &lt;&lt; newStack.size() &lt;&lt; endl;
-
-    return 0;
-}
-        </input>
-    </program>
-            </TabNode><TabNode tabname="Python" tabnode_options="{'subchapter': 'ImplementingaStackCpp', 'chapter': 'LinearBasic', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'Python'}">
-
-    <program xml:id="stack_1ac_py" interactive="activecode" language="python">
-        <input>
-#Tests the push, empty, size, pop, and top methods of the stack library.
-
-class Stack:
-    def __init__(self): #initializes new stack instance
-        self.items = []
-
-    def isEmpty(self): #returns boolean
-        return self.items == []
-
-    def push(self, item): #pushes new item onto stack
-        self.items.append(item)
-
-    def pop(self): #removes topmost item from stack
-        return self.items.pop()
-
-    def top(self): #returns the topmost item from the stack
-        return self.items[len(self.items)-1]
-
-    def size(self): #returns the size of the stack
-        return len(self.items)
-
-def main():
-    newStack = Stack()
-    newStack.push(4)
-    newStack.push(8)
-    newStack.push(15)
-
-    print("Stack Empty? ", newStack.isEmpty())
-
-    print("Stack Size: ", newStack.size())
-
-    print("Top Element of the Stack: ", newStack.top())
-
-    newStack.pop();
-
-    print("Top Element of the Stack: ", newStack.top())
-main()
-        </input>
-    </program>
+            <TabNode tabname="C++" tabnode_options="{'subchapter': 'ImplementingaStackCpp', 'chapter': 'LinearBasic', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'C++'}">
+                <program xml:id="stack_1ac_cpp" interactive="activecode" language="cpp">
+                    <input>
+            // Tests the push, empty, size, pop, and top methods of the stack library.
+            
+            #include &lt;iostream&gt;
+            #include &lt;stack&gt;    // Calling Stack from the STL
+            
+            using namespace std;
+            
+            int main() {
+                stack&lt;int&gt; newStack;
+            
+                newStack.push(3); // Adds 3 to the stack
+                newStack.push(8);
+                newStack.push(15);
+            
+                // Returns a boolean response depending on if the stack is empty or not
+                cout &lt;&lt; "Stack Empty? " &lt;&lt; newStack.empty() &lt;&lt; endl;
+            
+                // Returns the size of the stack itself
+                cout &lt;&lt; "Stack Size: " &lt;&lt; newStack.size() &lt;&lt; endl;
+            
+                // Returns the topmost element of the stack
+                cout &lt;&lt; "Top Element of the Stack: " &lt;&lt; newStack.top() &lt;&lt; endl;
+            
+                // Removes the topmost element of the stack
+                newStack.pop();
+            
+                cout &lt;&lt; "Top Element of the Stack: " &lt;&lt; newStack.top() &lt;&lt; endl;
+            
+                cout &lt;&lt; "Stack Size: " &lt;&lt; newStack.size() &lt;&lt; endl;
+            
+                return 0;
+            }
+                    </input>
+                </program>
             </TabNode>
+            
+            <TabNode tabname="Python" tabnode_options="{'subchapter': 'ImplementingaStackCpp', 'chapter': 'LinearBasic', 'basecourse': 'cppds', 'optional': '', 'optclass': '', 'tabname': 'Python'}">
+                <program xml:id="stack_1ac_py" interactive="activecode" language="python">
+                    <input>
+            # Tests the push, empty, size, pop, and top methods of the stack library.
+            
+            class Stack:
+                def __init__(self): # Initializes new stack instance
+                    self.items = []
+            
+                def isEmpty(self): # Returns boolean
+                    return self.items == []
+            
+                def push(self, item): # Pushes new item onto stack
+                    self.items.append(item)
+            
+                def pop(self): # Removes topmost item from stack
+                    return self.items.pop()
+            
+                def top(self): # Returns the topmost item from the stack
+                    return self.items[-1]
+            
+                def size(self): # Returns the size of the stack
+                    return len(self.items)
+            
+            def main():
+                newStack = Stack()
+                newStack.push(4)
+                newStack.push(8)
+                newStack.push(15)
+            
+                print("Stack Empty? ", newStack.isEmpty())
+            
+                print("Stack Size: ", newStack.size())
+            
+                print("Top Element of the Stack: ", newStack.top())
+            
+                newStack.pop()
+            
+                print("Top Element of the Stack: ", newStack.top())
+            
+            main()
+                    </input>
+                </program>
+            </TabNode>
+            
 
 <reading-questions xml:id="rq-stack-implementation">
                 <title>Reading Questions</title>
